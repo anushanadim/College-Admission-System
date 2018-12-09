@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/register"
+            android:title="Register" />
+
+        <item
+            android:id="@+id/submittedForms"
+            android:title="Submitted Forms" />
+
+        <item
+            android:id="@+id/scheduleDate"
+            android:title="Schedule Date" />
+
+        <item
+            android:id="@+id/viewSchedule"
+            android:title="View Schedule" />
+
+        <item
+            android:id="@+id/qualified"
+            android:title="Qualified" />
+
+        <item
+            android:id="@+id/viewQualified"
+            android:title="View Qualified" />
+    </group>
+</menu>
