@@ -13,6 +13,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.regex.Pattern;
 
 public class RegistrationForm extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -74,24 +75,42 @@ public class RegistrationForm extends AppCompatActivity implements AdapterView.O
             @Override
             public void onClick(View v) {
 
-                String nameStr=name.getText().toString();
-                int formNoInt=Integer.valueOf(formNo.getText().toString());
-                String courseStr=course.getSelectedItem().toString();
-                String dateStr=date.getText().toString();
-                int numInt=Integer.valueOf(num.getText().toString());
-                String addStr=add.getText().toString();
-                int amtInt=Integer.valueOf(amt.getText().toString());
-                long rowInserted=db.addData(nameStr,formNoInt,courseStr,dateStr,numInt,addStr,amtInt);
 
-                if(rowInserted==-1)
-                Toast.makeText(RegistrationForm.this,"Sorry",Toast.LENGTH_SHORT).show();
+                    String nameStr = name.getText().toString();
+                    String formNoStr=formNo.getText().toString();
+                    String courseStr = course.getSelectedItem().toString();
+                    String dateStr = date.getText().toString();
+                    String numStr=num.getText().toString();
+                    String addStr = add.getText().toString();
+                    String amtStr=amt.getText().toString();
 
-                formNo.setText("");
-                name.setText("");
-                date.setText("");
-                num.setText("");
-                add.setText("");
-                amt.setText("");
+
+                if(formNoStr.equals("")||nameStr.equals("")||courseStr.equals("Course")||dateStr.equals("")||addStr.equals("")||amtStr.equals(""))
+                {
+                    Toast.makeText(RegistrationForm.this, "Enter all fields",Toast.LENGTH_SHORT ).show();
+                }
+                else {
+
+                    if(Pattern.matches(".*[a-zA-Z]+.*[a-zA-Z]",nameStr )) {
+
+                        int formNoInt = Integer.valueOf(formNoStr);
+                        int numInt = Integer.valueOf(numStr);
+                        int amtInt = Integer.valueOf(amtStr);
+                        long rowInserted = db.addData(nameStr, formNoInt, courseStr, dateStr, numInt, addStr, amtInt);
+
+                        if (rowInserted == -1)
+                            Toast.makeText(RegistrationForm.this, "Sorry", Toast.LENGTH_SHORT).show();
+
+                        formNo.setText("");
+                        name.setText("");
+                        date.setText("");
+                        num.setText("");
+                        add.setText("");
+                        amt.setText("");
+                    }
+                    else
+                        Toast.makeText(RegistrationForm.this, "Enter valid name",Toast.LENGTH_SHORT ).show();
+                }
 
             }
         });

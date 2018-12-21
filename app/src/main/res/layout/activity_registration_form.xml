@@ -27,7 +27,8 @@
         android:layout_marginLeft="46dp"
         android:layout_marginTop="92dp"
         android:hint="Form No"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:inputType="number"/>
 
     <EditText
         android:id="@+id/date"
@@ -78,7 +79,8 @@
         android:layout_marginLeft="69dp"
         android:layout_marginTop="269dp"
         android:hint="Contact Number"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:inputType="number"/>
 
     <EditText
         android:id="@+id/name"
@@ -92,7 +94,8 @@
         android:layout_marginTop="203dp"
         android:gravity="center"
         android:hint="Name"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        />
 
     <EditText
         android:id="@+id/add"
@@ -120,7 +123,8 @@
         android:layout_marginTop="399dp"
         android:gravity="center"
         android:hint="Amount"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:inputType="number"/>
 
     <Button
         android:id="@+id/submit"
